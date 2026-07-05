@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { researchProjects } from "../data/site";
+---
+
+<BaseLayout
+  title="Research | Chayse Lavallais"
+  description="My research interests and projects in product carbon footprints, life cycle assessment, and sustainability decision frameworks."
+>
+  <section class="subpage-hero">
+    <p class="eyebrow">Research</p>
+    <h1>Methods for clearer sustainability decisions.</h1>
+    <p class="intro">
+      My research focuses on improving the way sustainability models are built,
+      interpreted, and used by people making decisions in complex chemical supply
+      chains.
+    </p>
+  </section>
+
+  <section class="stack" aria-label="Research projects">
+    {researchProjects.map((project) => (
+      <article class="wide-card">
+        <div>
+          <span class="meta">{project.meta}</span>
+        </div>
+        <div>
+          <h2>{project.title}</h2>
+          <p>{project.body}</p>
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { publications } from "../data/site";
+---
+
+<BaseLayout
+  title="Research and Publications | Chayse Lavallais"
+  description="My selected publications, manuscripts, and research writing."
+>
+  <section class="subpage-hero wide-hero">
+    <p class="eyebrow">Research and Publications</p>
+    <h1>Advancing sustainability through life cycle assessment, carbon accounting, and decision science.</h1>
+    <p class="intro">
+      My research develops quantitative frameworks for evaluating emerging
+      technologies that support a more sustainable and circular economy. By
+      combining life cycle assessment (LCA), techno-economic analysis (TEA),
+      carbon accounting, and decision science, I evaluate technologies ranging
+      from wastewater resource recovery and sustainable chemical production to
+      low-carbon manufacturing systems. My goal is to generate rigorous,
+      data-driven insights that help industry, researchers, and policymakers
+      make better sustainability decisions.
+    </p>
+  </section>
+
+  <section class="stack" aria-label="Publication list">
+    {publications.map((publication) => {
+      const publicationLinks = publication as typeof publication & { doiURL?: string };
+      const doi = publication.doi;
+      const suppliedDoiUrl = publication.doiUrl || publicationLinks.doiURL;
+      const hasDoi = doi && doi !== "DOI placeholder";
+      const hasDoiUrl = suppliedDoiUrl && suppliedDoiUrl !== "#";
+      const doiUrl = hasDoiUrl ? suppliedDoiUrl : `https://doi.org/${doi}`;
+
+      return (
+        <article class="publication-card">
+          <img src={publication.image} alt={publication.imageAlt} loading="lazy" />
+          <div class="publication-content">
+            <span class="meta">{publication.year}</span>
+            <h2>{publication.title}</h2>
+            <p>{publication.venue}</p>
+            <p>{publication.body}</p>
+            {(hasDoi || hasDoiUrl) && (
+              <a class="doi-link" href={doiUrl} target="_blank" rel="noreferrer">
+                {hasDoi ? `DOI: ${doi}` : "View DOI"}
+              </a>
+            )}
+          </div>
+        </article>
+      );
+    })}
+  </section>
+</BaseLayout>

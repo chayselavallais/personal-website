@@ -1,17 +1,109 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const featuredPublications = [
+  {
+    title: "N2O as reactant rather than pollutant at wastewater treatment plants: Life Cycle Assessment and Techno-Economic Analysis of N2O-to-phenol",
+    journal: "ACS Sustainable Chemistry & Engineering",
+    year: "2026",
+    image: "/N2OtoPhenol_Graphical_Photo.jpg",
+    imageAlt: "Graphical abstract for the N2O-to-phenol publication.",
+    linkLabel: "DOI: 10.1021/acssuschemeng.6c01008",
+    linkUrl: "https://doi.org/10.1021/acssuschemeng.6c01008",
+  },
+  {
+    title: "Life Cycle Assessment and Techno-Economic Analysis of Utilizing Waste Nitrogen to Develop Microbial Protein from Cyanophycin Accumulating Organisms",
+    journal: "ACS ES&T Water",
+    year: "2025",
+    image: "/CAO_Graphical_Photo.jpg",
+    imageAlt: "Graphical abstract for the cyanophycin accumulating organisms publication.",
+    linkLabel: "DOI: 10.1021/acsestwater.5c00605",
+    linkUrl: "https://doi.org/10.1021/acsestwater.5c00605",
+  },
+  {
+    title: "Selective electrochemical synthesis of urea from nitrate and CO2 via relay catalysis on hybrid catalysts",
+    journal: "Nature Catalysis",
+    year: "2023",
+    image: "/Urea_Abstract_Picture.jpg",
+    imageAlt: "Graphical abstract for the urea synthesis publication.",
+    linkLabel: "DOI: 10.1038/s41929-023-01020-4",
+    linkUrl: "https://doi.org/10.1038/s41929-023-01020-4",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Chayse Lavallais | Sustainability Scientist">
+  <section class="hero">
+    <div class="hero-image-panel">
+      <img
+        src="/Photo_of_me.png"
+        alt="Chayse Lavallais standing on stage."
+      />
+
+      <div class="hero-overlay">
+        <h1>Chayse Lavallais, PhD</h1>
+        <span>Chemical Engineer | Sustainability Scientist</span>
+      </div>
+    </div>
+
+    <aside class="profile-card" aria-label="Chayse Lavallais profile">
+      <img
+        class="profile-photo"
+        src="/Profile_Pic.PNG"
+        alt="Portrait of Chayse Lavallais"
+      />
+
+      <h2>Chayse Lavallais</h2>
+      <div class="education-list">
+        <p>Ph.D. in Chemical Engineering, Northwestern University</p>
+        <p>Management for Scientists and Engineers Certificate, Kellogg School of Management</p>
+        <p>B.S. in Chemical Engineering, Prairie View A&amp;M University</p>
+      </div>
+
+      <div class="download-grid" aria-label="Resume downloads">
+        <a class="download-card" href="/Chayse_Lavallais_Resume_LCAV3.pdf">
+          View CV / Resume
+        </a>
+      </div>
+    </aside>
+  </section>
+
+  <section class="page-section home-focus" aria-labelledby="home-focus-heading">
+    <p class="eyebrow">Current Focus</p>
+    <h2 class="section-title" id="home-focus-heading">Sustainability Decision-Making</h2>
+    <p>
+      I work at the intersection of sustainability, technology, and business,
+      developing quantitative frameworks that help organizations make more
+      informed environmental decisions. My work focuses on product carbon
+      footprint methodology, methodological uncertainty, life cycle assessment,
+      and decision-support tools for applied sustainability work.
+    </p>
+  </section>
+
+  <section class="page-section featured-publications" aria-labelledby="featured-publications-heading">
+    <h2 class="section-title" id="featured-publications-heading">Highlighted Publications</h2>
+
+    <div class="highlighted-publication-grid">
+      {featuredPublications.map((publication) => (
+        <article class="highlighted-publication-card">
+          <a
+            class="highlighted-publication-image"
+            href={publication.linkUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Read article: ${publication.title}`}
+          >
+            <img src={publication.image} alt={publication.imageAlt} />
+          </a>
+
+          <div class="highlighted-publication-caption">
+            <p>{publication.journal} {publication.year}</p>
+            <a class="doi-link" href={publication.linkUrl} target="_blank" rel="noreferrer">
+              {publication.linkLabel}
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

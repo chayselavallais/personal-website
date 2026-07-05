@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Publication placeholder</title>
+  <desc id="desc">Abstract placeholder artwork for a research publication.</desc>
+  <rect width="640" height="420" fill="#f0ede4"/>
+  <rect x="54" y="54" width="532" height="312" rx="10" fill="#ffffff" stroke="#d7d0c3" stroke-width="3"/>
+  <rect x="94" y="94" width="178" height="22" rx="4" fill="#55725f"/>
+  <rect x="94" y="136" width="352" height="14" rx="4" fill="#c9c1b4"/>
+  <rect x="94" y="166" width="410" height="14" rx="4" fill="#d7d0c3"/>
+  <rect x="94" y="196" width="300" height="14" rx="4" fill="#d7d0c3"/>
+  <circle cx="433" cy="286" r="46" fill="#e5e0d6"/>
+  <path d="M322 318c26-58 70-84 132-76 37 5 68 25 92 59" fill="none" stroke="#55725f" stroke-width="16" stroke-linecap="round"/>
+  <path d="M296 304c34-44 73-62 117-55" fill="none" stroke="#132018" stroke-width="12" stroke-linecap="round" opacity="0.72"/>
+</svg>
